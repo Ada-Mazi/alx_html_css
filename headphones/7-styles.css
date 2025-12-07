@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +28,7 @@ body {
     padding: 0 20px;
 }
 
+/* Header Styles */
 .header {
     background: linear-gradient(rgba(7, 22, 41, 0.9), rgba(7, 22, 41, 0.9)),
                 url('images/headphones_hero_1.jpg') no-repeat center center;
@@ -68,6 +70,7 @@ body {
     transform: scale(1.05);
 }
 
+/* Navigation */
 .nav-list {
     display: flex;
     list-style: none;
@@ -110,8 +113,19 @@ body {
 
 .nav-item a:hover::after {
     width: 100%;
+    animation: lineGrow 0.3s ease-out;
 }
 
+@keyframes lineGrow {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Hero Section */
 .hero {
     text-align: center;
     padding-top: 250px;
@@ -171,17 +185,20 @@ body {
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
+        box-shadow: 0 5px 15px rgba(255, 101, 101, 0.4);
     }
     50% {
         transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(255, 101, 101, 0.6);
     }
 }
 
 .btn:hover,
 .btn:active {
     opacity: 0.9;
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-5px) scale(1.05);
     animation: none;
+    box-shadow: 0 15px 30px rgba(255, 101, 101, 0.8);
 }
 
 .hero-description {
@@ -193,6 +210,7 @@ body {
     animation: fadeInUp 1s ease-out 0.6s backwards;
 }
 
+/* Section Common Styles */
 .section {
     padding: 100px 0;
     text-align: center;
@@ -215,6 +233,7 @@ body {
     animation: fadeInUp 0.8s ease-out 0.1s backwards;
 }
 
+/* What We Do Section */
 .what-we-do {
     background-color: #FFFFFF;
 }
@@ -241,7 +260,8 @@ body {
 .service-item:nth-child(4) { animation-delay: 0.5s; }
 
 .service-item:hover {
-    transform: translateY(-10px) scale(1.05);
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon {
@@ -255,7 +275,7 @@ body {
 }
 
 .service-item:hover .service-icon {
-    animation: bounce 1s ease;
+    animation: bounce 1s ease, colorChange 2s infinite;
     color: #ff4444;
 }
 
@@ -271,24 +291,67 @@ body {
     }
 }
 
+@keyframes colorChange {
+    0%, 100% {
+        color: var(--primary-color);
+    }
+    50% {
+        color: #ff4444;
+    }
+}
+
 .service-title {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 15px;
     color: var(--text-color);
+    transition: var(--transition);
+}
+
+.service-item:hover .service-title {
+    color: var(--primary-color);
+    transform: scale(1.05);
 }
 
 .service-description {
     font-size: 14px;
     color: var(--text-color);
     line-height: 1.5;
+    transition: var(--transition);
 }
 
+.service-item:hover .service-description {
+    transform: translateY(5px);
+}
+
+/* Our Results Section */
 .our-results {
     background: linear-gradient(rgba(7, 22, 41, 0.9), rgba(7, 22, 41, 0.9)),
                 url('images/headphones_hero_2.jpg') no-repeat center center;
     background-size: cover;
     color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.our-results::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 101, 101, 0.1) 50%, transparent 70%);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .our-results .section-title,
@@ -332,7 +395,7 @@ body {
     text-align: center;
     padding: 20px;
     transition: var(--transition);
-    animation: rotateIn 1s ease-out;
+    animation: rotateIn 1s ease-out, float 3s ease-in-out infinite;
 }
 
 @keyframes rotateIn {
@@ -346,9 +409,18 @@ body {
     }
 }
 
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 .pentagon:hover {
     transform: scale(1.1) rotate(5deg);
-    animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite, float 3s ease-in-out infinite;
 }
 
 @keyframes spin {
@@ -356,13 +428,13 @@ body {
         transform: scale(1.1) rotate(5deg);
     }
     25% {
-        transform: scale(1.1) rotate(10deg);
+        transform: scale(1.1) rotate(15deg);
     }
     50% {
         transform: scale(1.15) rotate(5deg);
     }
     75% {
-        transform: scale(1.1) rotate(0deg);
+        transform: scale(1.1) rotate(-5deg);
     }
     100% {
         transform: scale(1.1) rotate(5deg);
@@ -375,11 +447,34 @@ body {
     margin-bottom: 5px;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
+    animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .pentagon:hover .result-number {
-    transform: scale(1.1);
+    animation: numberPulse 1s infinite;
     color: #fff;
+}
+
+@keyframes numberPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .result-text {
@@ -392,10 +487,43 @@ body {
 
 .pentagon:hover .result-text {
     transform: scale(1.05);
+    animation: textGlow 1s infinite;
 }
 
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Contact Us Section */
 .contact-us {
     background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 101, 101, 0.1) 0%, transparent 50%);
+    animation: moveBg 20s infinite alternate;
+}
+
+@keyframes moveBg {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(100px) translateY(50px);
+    }
 }
 
 .contact-form {
@@ -404,7 +532,18 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    animation: slideInRight 1s ease-out 0.3s backwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .form-group {
@@ -447,7 +586,7 @@ body {
 .form-group input:focus ~ .underline {
     background-color: var(--primary-color);
     height: 2px;
-    animation: underlineGrow 0.5s ease-out;
+    animation: underlineGrow 0.5s ease-out, underlinePulse 2s infinite;
 }
 
 @keyframes underlineGrow {
@@ -461,11 +600,43 @@ body {
     }
 }
 
+@keyframes underlinePulse {
+    0%, 100% {
+        background-color: var(--primary-color);
+    }
+    50% {
+        background-color: #ff4444;
+    }
+}
+
+/* Footer */
 .footer {
     background-color: var(--bg-dark);
     color: var(--text-light);
     padding: 60px 0;
     animation: fadeInUp 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    animation: footerShine 5s infinite;
+}
+
+@keyframes footerShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .footer-content {
@@ -473,16 +644,32 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-logo img {
     height: 32px;
     width: auto;
     transition: var(--transition);
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    33% {
+        transform: translateY(-5px) rotate(-2deg);
+    }
+    66% {
+        transform: translateY(5px) rotate(2deg);
+    }
 }
 
 .footer-logo img:hover {
     transform: scale(1.1) rotate(-5deg);
+    animation: none;
 }
 
 .footer-social {
@@ -503,6 +690,22 @@ body {
     border-radius: 50%;
     position: relative;
     overflow: hidden;
+    animation: socialPop 0.5s ease-out backwards;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0.1s; }
+.social-icon:nth-child(2) { animation-delay: 0.2s; }
+.social-icon:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes socialPop {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .social-icon::before {
@@ -519,12 +722,23 @@ body {
 
 .social-icon:hover::before {
     left: 0;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
 }
 
 .social-icon:hover {
     color: var(--text-light);
     transform: translateY(-5px) rotate(360deg);
     transition: transform 0.6s ease, color 0.3s ease;
+    box-shadow: 0 10px 20px rgba(255, 101, 101, 0.3);
 }
 
 .social-icon span {
@@ -537,6 +751,8 @@ body {
     font-size: 12px;
     opacity: 0.35;
     animation: fadeIn 2s ease-out 1s backwards;
+    position: relative;
+    z-index: 1;
 }
 
 @keyframes fadeIn {
@@ -548,6 +764,7 @@ body {
     }
 }
 
+/* Holberton Icons Font */
 @font-face {
     font-family: 'Holberton School Icons';
     src: url('fonts/holberton_school-icon.eot') format('embedded-opentype'),
@@ -558,6 +775,21 @@ body {
     font-style: normal;
 }
 
+/* Scroll Animations */
+@media (prefers-reduced-motion: no-preference) {
+    .section {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero {
         padding-top: 150px;

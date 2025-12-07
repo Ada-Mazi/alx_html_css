@@ -3,27 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Headphones - With Animations</title>
-    <link rel="stylesheet" href="7-styles.css">
+    <title>Headphones - Mobile Menu</title>
+    <link rel="stylesheet" href="8-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
+    <!-- Header Section with Hamburger Menu -->
     <header class="header">
         <div class="container">
             <div class="header-logo">
                 <a href="#">
-                    <img src="images/logo_headphones.png" alt="Headphones Logo" width="161" height="32">
+                    <img src="images/logo_headphones.png" alt="Headphones Logo">
                 </a>
             </div>
             
-            <nav class="navbar">
+            <!-- Desktop Navigation -->
+            <nav class="navbar" id="navbar">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#what-we-do">what we do</a></li>
-                    <li class="nav-item"><a href="#our-results">our results</a></li>
-                    <li class="nav-item"><a href="#contact-us">contact us</a></li>
+                    <li class="nav-item"><a href="#what-we-do" class="nav-link">what we do</a></li>
+                    <li class="nav-item"><a href="#our-results" class="nav-link">our results</a></li>
+                    <li class="nav-item"><a href="#contact-us" class="nav-link">contact us</a></li>
                 </ul>
             </nav>
+            
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
         
         <section class="hero">
@@ -50,33 +59,25 @@
                     <div class="service-item">
                         <span class="service-icon"></span>
                         <h3 class="service-title">Lorem ipsum</h3>
-                        <p class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     
                     <div class="service-item">
                         <span class="service-icon"></span>
                         <h3 class="service-title">Lorem ipsum</h3>
-                        <p class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     
                     <div class="service-item">
                         <span class="service-icon"></span>
                         <h3 class="service-title">Lorem ipsum</h3>
-                        <p class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     
                     <div class="service-item">
                         <span class="service-icon"></span>
                         <h3 class="service-title">Lorem ipsum</h3>
-                        <p class="service-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        </p>
+                        <p class="service-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                 </div>
             </div>
@@ -124,7 +125,7 @@
         <section id="contact-us" class="section contact-us">
             <div class="container">
                 <h2 class="section-title">Contact us</h2>
-                <form class="contact-form" action="#" method="post">
+                <form class="contact-form" id="contactForm" action="#" method="post">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Name" required>
                         <div class="underline"></div>
@@ -136,7 +137,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <input type="text" id="message" name="message" placeholder="Your message" required>
+                        <textarea id="message" name="message" placeholder="Your message" required rows="3"></textarea>
                         <div class="underline"></div>
                     </div>
                     
@@ -151,7 +152,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <a href="#">
-                        <img src="images/logo_headphones.png" alt="Headphones Logo" width="161" height="32">
+                        <img src="images/logo_headphones.png" alt="Headphones Logo">
                     </a>
                 </div>
                 
@@ -168,10 +169,10 @@
                 </div>
             </div>
             
-            <p class="footer-copyright">
-                ©headphones 2020
-            </p>
+            <p class="footer-copyright">©headphones 2020</p>
         </div>
     </footer>
+
+    <script src="8-script.js"></script>
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -32,6 +33,7 @@ body {
     padding: 0 20px;
 }
 
+/* Section Common Styles */
 .section {
     padding: 100px 0;
     text-align: center;
@@ -53,6 +55,7 @@ body {
     line-height: 1.6;
 }
 
+/* Our Results Section */
 .our-results {
     background: linear-gradient(rgba(7, 22, 41, 0.9), rgba(7, 22, 41, 0.9));
     color: var(--text-light);
@@ -78,6 +81,7 @@ body {
     padding: 20px;
 }
 
+/* Pure CSS Pentagon - No Images */
 .pentagon {
     width: 190px;
     height: 190px;
@@ -131,6 +135,7 @@ body {
     margin: 0 auto;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .results-grid {
         grid-template-columns: repeat(2, 1fr);

@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -27,6 +28,7 @@ body {
     padding: 0 20px;
 }
 
+/* Header Styles */
 .header {
     background: linear-gradient(rgba(7, 22, 41, 0.9), rgba(7, 22, 41, 0.9)),
                 url('images/headphones_hero_1.jpg') no-repeat center center;
@@ -51,6 +53,7 @@ body {
     display: block;
 }
 
+/* Navigation */
 .nav-list {
     display: flex;
     list-style: none;
@@ -87,6 +90,7 @@ body {
     width: 100%;
 }
 
+/* Hero Section */
 .hero {
     text-align: center;
     padding-top: 250px;
@@ -143,6 +147,7 @@ body {
     line-height: 1.6;
 }
 
+/* Section Common Styles */
 .section {
     padding: 100px 0;
     text-align: center;
@@ -163,6 +168,7 @@ body {
     line-height: 1.6;
 }
 
+/* What We Do Section */
 .what-we-do {
     background-color: #FFFFFF;
 }
@@ -206,6 +212,7 @@ body {
     line-height: 1.5;
 }
 
+/* Our Results Section */
 .our-results {
     background: linear-gradient(rgba(7, 22, 41, 0.9), rgba(7, 22, 41, 0.9)),
                 url('images/headphones_hero_2.jpg') no-repeat center center;
@@ -265,6 +272,7 @@ body {
     max-width: 100px;
 }
 
+/* Contact Us Section */
 .contact-us {
     background-color: #FFFFFF;
 }
@@ -316,6 +324,60 @@ body {
     height: 2px;
 }
 
+/* Footer */
+.footer {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 60px 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.footer-logo img {
+    height: 32px;
+    width: auto;
+}
+
+.footer-social {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 30px;
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.social-icon span {
+    font-family: 'Holberton School Icons';
+    display: block;
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.35;
+}
+
+/* Holberton Icons Font */
 @font-face {
     font-family: 'Holberton School Icons';
     src: url('fonts/holberton_school-icon.eot') format('embedded-opentype'),
@@ -326,6 +388,7 @@ body {
     font-style: normal;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero {
         padding-top: 150px;
@@ -363,6 +426,16 @@ body {
     .contact-form {
         max-width: 280px;
         gap: 40px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
     }
 }
 
@@ -426,5 +499,18 @@ body {
     .contact-form {
         max-width: 250px;
         gap: 35px;
+    }
+    
+    .footer {
+        padding: 40px 0;
+    }
+    
+    .footer-content {
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+    
+    .social-icon {
+        font-size: 25px;
     }
 }
